@@ -1,0 +1,9 @@
+﻿<Prefab>
+  <Window>
+    <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent">
+      <Children>
+        <TextWidget SuggestedWidth="75" HorizontalAlignment="Right" VerticalAlignment="Bottom" PositionYOffset="-20" PositionXOffset="-200" ClipContents="false" Brush="CustomBrushMediumCenter" Text="@DisplayText"/>
+      </Children>
+    </Widget>
+  </Window>
+</Prefab>
