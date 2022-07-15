@@ -6,17 +6,22 @@ using TaleWorlds.CampaignSystem.CampaignBehaviors;
 using TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Refinement;
 using static TaleWorlds.Core.Crafting;
 
-namespace BetterCrafting.Patches {
+namespace BetterCrafting.Patches
+{
 	[HarmonyPatch(typeof(RefinementVM), "ExecuteSelectedRefinement", new Type[] { typeof(Hero) })]
-	public class RefinementVMPatch {
+	public class RefinementVMPatch
+	{
 
 		private static bool refinmentPatchActive = true;
-		private static bool Prefix(RefinementVM __instance, Hero currentCraftingHero) {
-			if (!RefinementVMPatch.refinmentPatchActive) {
+		private static bool Prefix(RefinementVM __instance, Hero currentCraftingHero)
+		{
+			if (!RefinementVMPatch.refinmentPatchActive)
+			{
 				return true;
 			}
 
-			if (__instance.CurrentSelectedAction != null) {
+			if (__instance.CurrentSelectedAction != null)
+			{
 
 				int refinmentRepeats = SubModule.datasource.GetMultiplier();
 
@@ -28,17 +33,19 @@ namespace BetterCrafting.Patches {
 
 				int totalEnergyCost = energyCostForRefining * refinmentRepeats;
 
-				if (totalEnergyCost > heroCraftingStamina) {
+				if (totalEnergyCost > heroCraftingStamina)
+				{
 					//Adjust repeats to what hero has stamina for
 					refinmentRepeats = heroCraftingStamina / energyCostForRefining;
 					totalEnergyCost = refinmentRepeats * energyCostForRefining;
-                }
+				}
 
 				//Disable prefix patch to pervent stackoverflow issue
 				RefinementVMPatch.refinmentPatchActive = false;
 
 				Helper.DisplayFriendlyMsg(String.Format("Spent {0} stamina to refine {1} product(s).", totalEnergyCost, refinmentRepeats));
-				for (int i = 0; i <= refinmentRepeats; i++) {
+				for (int i = 0; i <= refinmentRepeats; i++)
+				{
 					__instance.ExecuteSelectedRefinement(currentCraftingHero);
 				}
 

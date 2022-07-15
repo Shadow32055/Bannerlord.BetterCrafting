@@ -1,16 +1,21 @@
 ﻿using TaleWorlds.Library;
 
-namespace BetterCrafting.ViewModels {
-    public class CraftingMultiplyerViewModel : ViewModel {
-        private string displayString = "";
+namespace BetterCrafting.ViewModels
+{
+	public class CraftingMultiplyerViewModel : ViewModel
+	{
+		private string displayString = "";
 		//private int multiplier;
 
 		[DataSourceProperty]
-		public string DisplayText {
-			get {
+		public string DisplayText
+		{
+			get
+			{
 				return displayString;
 			}
-			set {
+			set
+			{
 				this.displayString = value;
 				base.OnPropertyChangedWithValue(value, "DisplayText");
 			}
@@ -18,11 +23,13 @@ namespace BetterCrafting.ViewModels {
 
 		public int multiplier;
 
-		public int GetMultiplier() {
+		public int GetMultiplier()
+		{
 			return multiplier;
-        }
+		}
 
-		public void SetMultiplier(int i) {
+		public void SetMultiplier(int i)
+		{
 			multiplier = i;
 			string s = "x" + i.ToString();
 			this.displayString = s;

@@ -7,61 +7,75 @@ using TaleWorlds.InputSystem;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.ScreenSystem;
 
-namespace BetterCrafting {
-    public class SubModule : MBSubModuleBase {
+namespace BetterCrafting
+{
+	public class SubModule : MBSubModuleBase
+	{
 
-        private static GauntletLayer? layer = null;
-        public static ScreenBase? sbase;
-        public static CraftingMultiplyerViewModel datasource = new CraftingMultiplyerViewModel();
+		private static GauntletLayer? layer = null;
+		public static ScreenBase? sbase;
+		public static CraftingMultiplyerViewModel datasource = new CraftingMultiplyerViewModel();
 
-        protected override void OnSubModuleLoad() {
-            base.OnSubModuleLoad();
+		protected override void OnSubModuleLoad()
+		{
+			base.OnSubModuleLoad();
 
-            Harmony h = new Harmony("Bannerlord.Shadow.BetterCrafting");
+			Harmony h = new Harmony("Bannerlord.Shadow.BetterCrafting");
 
-            h.PatchAll();
-        }
+			h.PatchAll();
+		}
 
-        protected override void OnSubModuleUnloaded() {
-            base.OnSubModuleUnloaded();
+		protected override void OnSubModuleUnloaded()
+		{
+			base.OnSubModuleUnloaded();
 
-        }
+		}
 
-        protected override void OnBeforeInitialModuleScreenSetAsRoot() {
-            base.OnBeforeInitialModuleScreenSetAsRoot();
+		protected override void OnBeforeInitialModuleScreenSetAsRoot()
+		{
+			base.OnBeforeInitialModuleScreenSetAsRoot();
 
-            string modName = base.GetType().Assembly.GetName().Name;
+			string modName = base.GetType().Assembly.GetName().Name;
 
-            Helper.SetModName(modName);
-        }
+			Helper.SetModName(modName);
+		}
 
-		protected override void OnApplicationTick(float dt) {
+		protected override void OnApplicationTick(float dt)
+		{
 			base.OnApplicationTick(dt);
 
 			sbase = ScreenManager.TopScreen;
 
-			if (sbase != null) {
+			if (sbase != null)
+			{
 
-				if (sbase is CraftingGauntletScreen) {
+				if (sbase is CraftingGauntletScreen)
+				{
 
-					if (layer == null) {
+					if (layer == null)
+					{
 						layer = new GauntletLayer(100, "GauntletLayer", true);
 						layer.LoadMovie("CraftingHUD", datasource);
 						sbase.AddLayer(layer);
 						ScreenManager.TrySetFocus(layer);
 					}
 
-					if (Input.IsKeyDown(InputKey.LeftControl) && Input.IsKeyDown(InputKey.LeftShift)) {
+					if (Input.IsKeyDown(InputKey.LeftControl) && Input.IsKeyDown(InputKey.LeftShift))
+					{
 						datasource.SetMultiplier(100);
-					} else if (Input.IsKeyDown(InputKey.LeftShift)) {
+					} else if (Input.IsKeyDown(InputKey.LeftShift))
+					{
 						datasource.SetMultiplier(10);
-					} else if (Input.IsKeyDown(InputKey.LeftControl)) {
+					} else if (Input.IsKeyDown(InputKey.LeftControl))
+					{
 						datasource.SetMultiplier(5);
-					} else {
+					} else
+					{
 						datasource.SetMultiplier(1);
 					}
 
-				} else if (layer != null) {
+				} else if (layer != null)
+				{
 					//Helper.DisplayFriendlyMsg("Removing layer");
 					sbase.RemoveLayer(layer);
 					layer = null;
