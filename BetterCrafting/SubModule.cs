@@ -63,18 +63,22 @@ namespace BetterCrafting
                     if (Input.IsKeyDown(InputKey.LeftControl) && Input.IsKeyDown(InputKey.LeftShift))
                     {
                         datasource.SetMultiplier(100);
-                    } else if (Input.IsKeyDown(InputKey.LeftShift))
+                    }
+                    else if (Input.IsKeyDown(InputKey.LeftShift))
                     {
                         datasource.SetMultiplier(10);
-                    } else if (Input.IsKeyDown(InputKey.LeftControl))
+                    }
+                    else if (Input.IsKeyDown(InputKey.LeftControl))
                     {
                         datasource.SetMultiplier(5);
-                    } else
+                    }
+                    else
                     {
                         datasource.SetMultiplier(1);
                     }
 
-                } else if (layer != null)
+                }
+                else if (layer != null)
                 {
                     //Helper.DisplayFriendlyMsg("Removing layer");
                     sbase.RemoveLayer(layer);

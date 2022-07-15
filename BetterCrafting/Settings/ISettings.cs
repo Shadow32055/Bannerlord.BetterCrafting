@@ -1,5 +1,7 @@
 ﻿
-namespace BetterCrafting.Settings {
-    public interface ISettings {
+namespace BetterCrafting.Settings
+{
+    public interface ISettings
+    {
     }
 }

@@ -86,14 +86,17 @@ namespace BetterCrafting.Patches
                             smithingRepeats--;
 
                             bool flag5;
+
                             if (smeltingItemVM == __instance.CurrentSelectedItem)
                             {
                                 MBBindingList<CraftingResourceItemVM> inputMaterials = smeltingItemVM.InputMaterials;
                                 flag5 = (inputMaterials == null || inputMaterials.Count <= 0);
-                            } else
+                            }
+                            else
                             {
                                 flag5 = false;
                             }
+
                             if (flag5)
                             {
                                 break;
