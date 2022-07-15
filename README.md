@@ -1,10 +1,10 @@
 # Bannerlord.BetterCrafting
 
 ## Summary
-**Better Crafting** 
+**Better Crafting**
 
 ## Features
-- 
+-
 
 ## Installation & Updating
 1. Download the mod.
@@ -50,7 +50,7 @@ Add more bonuses. If you have any ideas, please post them.
 [Better Skills](https://www.nexusmods.com/mountandblade2bannerlord/mods/3433)  
 [Better Prisoners](https://www.nexusmods.com/mountandblade2bannerlord/mods/3192)  
 
-##	Credits
+## Credits
 
 ## Discord
 Please join my [Discord](https://discord.gg/yMAVqcwcZQ) if you have any questions, problems, or suggestions. I take breaks from modding every now and then so this is the best way to contact me.
