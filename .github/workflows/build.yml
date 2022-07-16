@@ -27,6 +27,6 @@ jobs:
         run: nuget restore BetterCrafting.sln
       
       - name: Build Project
-        run: msbuild BetterCrafting.sln -m /p:OutputPath=bin\Win64_Shipping_Client\;PostBuildEvent=;PreBuildEvent=
+        run: msbuild BetterCrafting.sln /p:PostBuildEvent= /p:PreBuildEvent=
       
   
