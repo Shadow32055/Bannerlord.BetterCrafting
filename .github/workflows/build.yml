@@ -21,8 +21,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - name: Build Bannerlord.PlayerSwitcher
-      run: dotnet pack src/Bannerlord.PlayerSwitcher/Bannerlord.PlayerSwitcher.csproj --configuration Release -p:GameFolder="$PWD/bannerlord";
-      shell: pwsh
+      #- name: Build Bannerlord.PlayerSwitcher
+      #run: dotnet pack src/Bannerlord.PlayerSwitcher/Bannerlord.PlayerSwitcher.csproj --configuration Release -p:GameFolder="$PWD/bannerlord";
+      #shell: pwsh
       
   
