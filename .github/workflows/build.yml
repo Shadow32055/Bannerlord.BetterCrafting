@@ -21,8 +21,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - name: Build Bannerlord.BetterCrafting
-      run: dotnet pack BetterCrafting/BetterCrafting.csproj --configuration Release; #-p:GameFolder="$PWD/bannerlord";
-      shell: pwsh
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '3.x'
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
       
   
