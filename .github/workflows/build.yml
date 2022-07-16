@@ -25,6 +25,9 @@ jobs:
         
       - name: Restore Nuget
         run: nuget restore BetterCrafting.sln
+        
+      - name: Get Bannerlord Reference Assemblies
+        run: dotnet add PROJECT package Bannerlord.ReferenceAssemblies.EarlyAccess --version 1.8.0.316217
       
       - name: Build Project
         run: msbuild BetterCrafting.sln
