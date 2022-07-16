@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  pull_requests:
+  pull_request:
     branches:
       - main
   
@@ -14,16 +14,19 @@ jobs:
     name: Build project
     runs-on: [windows-latest]
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v2
         
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: '4.7.2'
-      - name: Install dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
+        
+      - name: Setup NuGet.exe
+        uses: NuGet/setup-nuget@v1.0.6
+        
+      - name: Restore Nuget
+        run: nuget restore BetterCrafting.sln
+      
+      - name: Build Project
+        run: msbuild BetterCrafting.sln
       
   
