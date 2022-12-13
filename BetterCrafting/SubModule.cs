@@ -49,7 +49,7 @@ namespace BetterCrafting
             if (sbase != null)
             {
 
-                if (sbase is CraftingGauntletScreen)
+                if (sbase is GauntletCraftingScreen)
                 {
 
                     if (layer == null)
